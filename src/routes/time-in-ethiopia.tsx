@@ -18,6 +18,33 @@ export const Route = createFileRoute("/time-in-ethiopia")({
       { property: "og:locale:alternate", content: "am_ET" },
     ],
     links: [{ rel: "canonical", href: "https://ethiopiatoday.online/time-in-ethiopia" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            {
+              "@type": "Question",
+              name: "What time is it in Ethiopia now?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Ethiopia uses East Africa Time (UTC+3) year-round with no daylight saving. This page shows the live Addis Ababa time.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Does Ethiopia use daylight saving time?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "No. Ethiopia remains on East Africa Time (UTC+3) throughout the year.",
+              },
+            },
+          ],
+        }),
+      },
+    ],
   }),
   component: TimePage,
 });

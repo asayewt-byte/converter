@@ -110,6 +110,19 @@ function UsdEtb() {
           </ul>
         </Card>
       </div>
+
+      <Card className="mt-6">
+        <h2 className="font-serif text-2xl tracking-tight">National Bank of Ethiopia exchange rate context</h2>
+        <p className="mt-3 text-sm text-muted-foreground leading-7">
+          Many users search for the National Bank of Ethiopia exchange rate as a benchmark. This page provides a
+          practical market-reference number for planning, while bank settlement rates, remittance partner rates,
+          and official published rates can differ.
+        </p>
+        <p className="mt-3 text-sm text-muted-foreground leading-7">
+          For critical transactions, always confirm the final rate and fees with your bank or transfer provider at the
+          time of payment.
+        </p>
+      </Card>
     </SiteShell>
   );
 }

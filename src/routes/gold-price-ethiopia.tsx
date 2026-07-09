@@ -8,11 +8,11 @@ import { ratesQueryOptions } from "@/lib/rates";
 export const Route = createFileRoute("/gold-price-ethiopia")({
   head: () => ({
     meta: [
-      { title: "Gold Price Addis Ababa — Today's Rate per Gram (ETB)" },
+      { title: "1 Gram Gold Price in Ethiopia Today — Addis Ababa (ETB)" },
       {
         name: "description",
         content:
-          "Gold price Addis Ababa today and reference rates in Ethiopia: 24K, 22K, 21K and 18K per gram in ETB.",
+          "1 gram gold price in Ethiopia today, plus Addis Ababa reference rates for 24K, 22K, 21K and 18K in ETB.",
       },
       { property: "og:title", content: "Gold Price Addis Ababa" },
       { property: "og:description", content: "Gold price Addis Ababa and Ethiopia reference rates per gram in ETB." },
@@ -21,6 +21,33 @@ export const Route = createFileRoute("/gold-price-ethiopia")({
       { property: "og:locale:alternate", content: "am_ET" },
     ],
     links: [{ rel: "canonical", href: "https://ethiopiatoday.online/gold-price-ethiopia" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            {
+              "@type": "Question",
+              name: "What is 1 gram gold price in Ethiopia today?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "It varies by global spot gold and USD to ETB. This page estimates a live 1-gram reference in ETB for common purities.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Why is Addis Ababa shop price higher than spot-based value?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Retail jewelry includes making charges, purity checks, and seller margin, so final price is usually above bullion reference.",
+              },
+            },
+          ],
+        }),
+      },
+    ],
   }),
   loader: ({ context }) => context.queryClient.ensureQueryData(ratesQueryOptions),
   component: GoldPage,
@@ -46,6 +73,8 @@ function GoldPage() {
   const [spotUsd, setSpotUsd] = useState<number>(2650);
   const perGramUsd = spotUsd / OZ_TO_GRAM;
   const perGramEtb = perGramUsd * usdEtb;
+  const oneGram24k = perGramEtb * 0.999;
+  const oneGram22k = perGramEtb * (22 / 24);
 
   const karats = [
     { k: "24K", purity: 0.999 },
@@ -60,6 +89,27 @@ function GoldPage() {
       title="Gold Price Addis Ababa"
       intro="Reference gold price Addis Ababa and Ethiopia per gram in ETB, derived from spot price and today's USD to ETB rate."
     >
+      <Card className="mb-6">
+        <h2 className="font-serif text-2xl tracking-tight">1 gram gold price in Ethiopia today</h2>
+        <p className="mt-2 text-sm text-muted-foreground leading-7">
+          Fast reference for the most searched query: one gram gold value in ETB based on live spot and USD to ETB.
+        </p>
+        <div className="mt-4 grid gap-3 sm:grid-cols-2">
+          <div className="rounded-xl border border-border/70 bg-card p-4">
+            <div className="text-xs uppercase tracking-widest text-muted-foreground">24K · 1 gram</div>
+            <div className="mt-1 text-2xl font-semibold tabular-nums">
+              {oneGram24k.toLocaleString(undefined, { maximumFractionDigits: 2 })} ETB
+            </div>
+          </div>
+          <div className="rounded-xl border border-border/70 bg-card p-4">
+            <div className="text-xs uppercase tracking-widest text-muted-foreground">22K · 1 gram</div>
+            <div className="mt-1 text-2xl font-semibold tabular-nums">
+              {oneGram22k.toLocaleString(undefined, { maximumFractionDigits: 2 })} ETB
+            </div>
+          </div>
+        </div>
+      </Card>
+
       <Card className="mb-6">
         <div className="grid gap-4 md:grid-cols-3">
           <label className="flex flex-col gap-1 text-sm">
