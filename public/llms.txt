@@ -1,0 +1,27 @@
+# Ethiopia Today
+
+> Daily utilities for Ethiopia — Ethiopian calendar, USD-ETB exchange rate, gold prices, current time in Addis Ababa, public holidays, and useful calculators. Free, fast and ad-light.
+
+Ethiopia Today is a reference site for the small numbers Ethiopians look up every day: today's date in the Ge'ez calendar, the current time in East Africa Time, the day's exchange and gold rates, upcoming holidays, and simple calendar-aware calculators.
+
+## Pages
+
+- [Home](/): Today's Ethiopian date, live time in Addis Ababa, and the full index of daily utilities.
+- [Ethiopian Calendar](/ethiopian-calendar): Full-month view of the Ge'ez calendar with matching Gregorian dates.
+- [Ethiopian Date Today](/ethiopian-date-today): What today is in the Ethiopian calendar, with the Amharic month name.
+- [Calendar Converter](/ethiopian-calendar-converter): Convert any date between the Ethiopian and Gregorian calendars.
+- [Currency Converter](/currency-converter): Convert Ethiopian Birr to USD, EUR, GBP and other major currencies.
+- [USD to ETB](/usd-to-etb): Today's US Dollar to Ethiopian Birr reference rate.
+- [Gold Price in Ethiopia](/gold-price-ethiopia): Reference gold price per gram in ETB.
+- [Time in Ethiopia](/time-in-ethiopia): Current time in Addis Ababa (EAT, UTC+3) plus the Ethiopian 12-hour clock.
+- [Ethiopian Holidays](/ethiopian-holidays): Public and religious holidays observed in Ethiopia this year.
+- [Age Calculator](/age-calculator): Your age in both the Ethiopian and Gregorian calendars.
+- [Date Difference](/date-difference): Days, weeks and months between any two dates.
+
+## Optional
+
+- [About](/about): What Ethiopia Today is and who it's for.
+- [Contact](/contact): How to reach us.
+- [Privacy](/privacy): Privacy policy.
+- [Terms](/terms): Terms of use.
+- [Cookies](/cookies): Cookie policy.
