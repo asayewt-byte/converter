@@ -8,13 +8,17 @@ import { ratesQueryOptions } from "@/lib/rates";
 export const Route = createFileRoute("/usd-to-etb")({
   head: () => ({
     meta: [
-      { title: "USD to ETB Today — US Dollar to Ethiopian Birr Rate" },
+      { title: "USD to ETB Today | Send Money to Ethiopia Rate Guide" },
       {
         name: "description",
-        content: "Today's mid-market USD to ETB exchange rate, plus conversion for common amounts.",
+        content:
+          "USD to ETB today with live conversion for common amounts and practical context for families who send money to Ethiopia.",
       },
-      { property: "og:title", content: "USD to ETB Today" },
-      { property: "og:description", content: "Today's US Dollar to Ethiopian Birr exchange rate." },
+      { property: "og:title", content: "USD to ETB Today | Send Money to Ethiopia" },
+      {
+        property: "og:description",
+        content: "Check USD to ETB today and plan better when you send money to Ethiopia.",
+      },
       { property: "og:url", content: "https://ethiopiatoday.online/usd-to-etb" },
       { property: "og:locale", content: "en_US" },
       { property: "og:locale:alternate", content: "am_ET" },
@@ -37,7 +41,7 @@ function UsdEtb() {
     <SiteShell
       icon={DollarSign}
       title="USD to ETB Today"
-      intro="The current US Dollar to Ethiopian Birr mid-market exchange rate."
+      intro="Track USD to ETB today and estimate transfer value before you send money to Ethiopia."
     >
       <div className="grid gap-6 md:grid-cols-[1fr_1fr]">
         <Card>
@@ -82,7 +86,7 @@ function UsdEtb() {
       </div>
 
       <div className="mt-8 text-sm text-muted-foreground">
-        Need other currencies?{" "}
+        Need other currencies, or planning to send money to Ethiopia from abroad?{" "}
         <Link to="/currency-converter" className="text-primary underline underline-offset-4">
           Open the currency converter
         </Link>

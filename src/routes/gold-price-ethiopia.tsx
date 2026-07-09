@@ -8,14 +8,14 @@ import { ratesQueryOptions } from "@/lib/rates";
 export const Route = createFileRoute("/gold-price-ethiopia")({
   head: () => ({
     meta: [
-      { title: "Gold Price in Ethiopia — Today's Rate per Gram (ETB)" },
+      { title: "Gold Price Addis Ababa — Today's Rate per Gram (ETB)" },
       {
         name: "description",
         content:
-          "Today's reference gold price in Ethiopia — 24K, 22K, 21K and 18K per gram in Ethiopian Birr (ETB).",
+          "Gold price Addis Ababa today and reference rates in Ethiopia: 24K, 22K, 21K and 18K per gram in ETB.",
       },
-      { property: "og:title", content: "Gold Price in Ethiopia" },
-      { property: "og:description", content: "Reference gold prices per gram in ETB." },
+      { property: "og:title", content: "Gold Price Addis Ababa" },
+      { property: "og:description", content: "Gold price Addis Ababa and Ethiopia reference rates per gram in ETB." },
       { property: "og:url", content: "https://ethiopiatoday.online/gold-price-ethiopia" },
       { property: "og:locale", content: "en_US" },
       { property: "og:locale:alternate", content: "am_ET" },
@@ -57,8 +57,8 @@ function GoldPage() {
 
   return (
     <SiteShell icon={Gem}
-      title="Gold Price in Ethiopia"
-      intro="Reference gold price per gram in Ethiopian Birr, derived from the international spot price and today's USD/ETB rate."
+      title="Gold Price Addis Ababa"
+      intro="Reference gold price Addis Ababa and Ethiopia per gram in ETB, derived from spot price and today's USD to ETB rate."
     >
       <Card className="mb-6">
         <div className="grid gap-4 md:grid-cols-3">

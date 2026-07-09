@@ -19,16 +19,16 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Ethiopia Today — Calendar, Rates & Daily Utilities" },
+      { title: "USD to ETB Today, Gold Price Addis Ababa, Send Money to Ethiopia" },
       {
         name: "description",
         content:
-          "Today's Ethiopian date, USD-ETB exchange rates, gold prices, time in Ethiopia, holidays, and useful calculators — updated daily.",
+          "USD to ETB today, gold price Addis Ababa, and practical tools for families who send money to Ethiopia, updated daily.",
       },
-      { property: "og:title", content: "Ethiopia Today — Calendar, Rates & Daily Utilities" },
+      { property: "og:title", content: "USD to ETB Today and Gold Price Addis Ababa" },
       {
         property: "og:description",
-        content: "Today's Ethiopian date, USD-ETB exchange rates, gold prices, time in Ethiopia, holidays, and useful calculators — updated daily.",
+        content: "Track USD to ETB today, check gold price Addis Ababa, and plan before you send money to Ethiopia.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://ethiopiatoday.online/" },
@@ -118,8 +118,17 @@ function HomePage() {
     <SiteShell
       eyebrow="Ethiopia Today · daily reference"
       title="Today, in numbers."
-      intro="The Ethiopian date, the exchange rate, the current time, the gold price — the small numbers Ethiopians look up every morning, in one quiet page."
+      intro="USD to ETB today, gold price Addis Ababa, and practical daily tools for people at home and in the diaspora."
     >
+      <Card className="mb-8">
+        <div className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground font-medium">Diaspora essentials</div>
+        <div className="mt-3 flex flex-wrap gap-3 text-sm">
+          <Link to="/usd-to-etb" className="text-primary underline underline-offset-4">USD to ETB today</Link>
+          <Link to="/currency-converter" className="text-primary underline underline-offset-4">send money to Ethiopia</Link>
+          <Link to="/gold-price-ethiopia" className="text-primary underline underline-offset-4">gold price Addis Ababa</Link>
+        </div>
+      </Card>
+
       {/* Signature: dual clock + date, floated on a soft card */}
       <div className="mb-12 md:mb-16 relative">
         <div className="relative overflow-hidden rounded-[24px] md:rounded-[28px] border border-border/70 bg-card/50 backdrop-blur-md p-6 sm:p-8 md:p-12 shadow-[0_1px_0_oklch(1_0_0/0.45)_inset,0_30px_60px_-40px_oklch(0.20_0.02_165/0.35)]">

@@ -5,16 +5,16 @@ import { DollarSign } from "lucide-react";
 export const Route = createFileRoute("/understanding-usd-to-etb")({
   head: () => ({
     meta: [
-      { title: "Understanding USD to ETB" },
+      { title: "Understanding USD to ETB | Send Money to Ethiopia" },
       {
         name: "description",
         content:
-          "Understand what USD to ETB means, what moves the rate, and how to read daily exchange numbers correctly.",
+          "Understand USD to ETB today, what moves the rate, and how to compare transfer costs when you send money to Ethiopia.",
       },
       { property: "og:title", content: "Understanding USD to ETB" },
       {
         property: "og:description",
-        content: "A simple explainer for reading USD to ETB exchange rates.",
+        content: "A practical explainer for diaspora families who send money to Ethiopia.",
       },
       { property: "og:url", content: "https://ethiopiatoday.online/understanding-usd-to-etb" },
     ],
@@ -29,7 +29,7 @@ function RouteComponent() {
       icon={DollarSign}
       eyebrow="Article"
       title="Understanding USD to ETB"
-      intro="Exchange rates affect imports, travel, remittances, and savings decisions. Here is how to read the number clearly."
+      intro="Exchange rates affect travel, remittances, and savings decisions. Use this guide before you send money to Ethiopia."
     >
       <div className="grid gap-6">
         <Card>
