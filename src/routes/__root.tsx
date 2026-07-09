@@ -80,6 +80,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Ethiopia Today — Calendar, Rates & Daily Utilities" },
       { name: "description", content: "Today's Ethiopian date, USD-ETB exchange rates, gold prices, time in Ethiopia, holidays, and useful calculators — updated daily." },
+      { name: "google-adsense-account", content: "ca-pub-4947055003744994" },
       { name: "author", content: "Ethiopia Today" },
       { name: "robots", content: "index,follow" },
       { property: "og:site_name", content: "Ethiopia Today" },
