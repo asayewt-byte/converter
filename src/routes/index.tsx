@@ -51,6 +51,34 @@ const TOOLS = [
   { to: "/date-difference", icon: Sigma, title: "Date Difference", desc: "Days, weeks and months between two dates." },
 ] as const;
 
+const ARTICLES = [
+  {
+    to: "/how-ethiopian-calendar-works",
+    title: "How the Ethiopian calendar works",
+    desc: "13 months, New Year timing, and why the year number differs.",
+  },
+  {
+    to: "/understanding-usd-to-etb",
+    title: "Understanding USD to ETB",
+    desc: "What the exchange quote means and how to read it correctly.",
+  },
+  {
+    to: "/ethiopian-holidays-explained",
+    title: "Ethiopian holidays explained",
+    desc: "Public and religious observances, and date interpretation tips.",
+  },
+  {
+    to: "/ethiopian-calendar-vs-gregorian",
+    title: "Ethiopian calendar vs Gregorian",
+    desc: "A side-by-side comparison for planning and conversion.",
+  },
+  {
+    to: "/ethiopian-13-months-guide",
+    title: "Ethiopian 13 months guide",
+    desc: "How Pagume works and how the 13th month fits the year.",
+  },
+] as const;
+
 // Cache the formatter — new Intl.DateTimeFormat() every tick is measurable at 1Hz.
 const TIME_FMT = new Intl.DateTimeFormat("en-GB", {
   timeZone: "Africa/Addis_Ababa",
@@ -281,6 +309,41 @@ function HomePage() {
           );
         })}
       </ol>
+
+      <section className="mt-14 md:mt-16">
+        <div className="mb-6 flex items-end justify-between">
+          <div>
+            <div className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground font-medium mb-2">
+              Editorial
+            </div>
+            <h2 className="font-serif text-fluid-h2 font-normal tracking-[-0.02em]">
+              Explainers and guides
+            </h2>
+          </div>
+          <span className="num text-xs text-muted-foreground pb-1">
+            {String(ARTICLES.length).padStart(2, "0")} pages
+          </span>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-2">
+          {ARTICLES.map((a) => (
+            <Link
+              key={a.to}
+              to={a.to}
+              className="group rounded-[18px] border border-border/70 bg-card/70 p-5 shadow-[0_1px_0_oklch(1_0_0/0.4)_inset] transition-colors hover:border-border hover:bg-accent/[0.05]"
+            >
+              <h3 className="font-serif text-[22px] leading-tight tracking-[-0.02em] text-foreground">
+                {a.title}
+              </h3>
+              <p className="mt-2 text-sm text-muted-foreground">{a.desc}</p>
+              <div className="mt-4 inline-flex items-center gap-1.5 text-sm text-muted-foreground group-hover:text-accent transition-colors">
+                <span>Read article</span>
+                <ArrowRight width={14} height={14} aria-hidden />
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
 
     </SiteShell>
   );

@@ -15,10 +15,14 @@ import { Route as TermsRouteImport } from './routes/terms'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as GoldPriceEthiopiaRouteImport } from './routes/gold-price-ethiopia'
+import { Route as HowEthiopianCalendarWorksRouteImport } from './routes/how-ethiopian-calendar-works'
 import { Route as EthiopianHolidaysRouteImport } from './routes/ethiopian-holidays'
+import { Route as EthiopianHolidaysExplainedRouteImport } from './routes/ethiopian-holidays-explained'
+import { Route as EthiopianCalendarVsGregorianRouteImport } from './routes/ethiopian-calendar-vs-gregorian'
 import { Route as EthiopianDateTodayRouteImport } from './routes/ethiopian-date-today'
 import { Route as EthiopianCalendarConverterRouteImport } from './routes/ethiopian-calendar-converter'
 import { Route as EthiopianCalendarRouteImport } from './routes/ethiopian-calendar'
+import { Route as Ethiopian13MonthsGuideRouteImport } from './routes/ethiopian-13-months-guide'
 import { Route as DateDifferenceRouteImport } from './routes/date-difference'
 import { Route as CurrencyConverterRouteImport } from './routes/currency-converter'
 import { Route as CookiesRouteImport } from './routes/cookies'
@@ -26,6 +30,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AgeCalculatorRouteImport } from './routes/age-calculator'
 import { Route as AdsDottxtRouteImport } from './routes/ads[.]txt'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as UnderstandingUsdToEtbRouteImport } from './routes/understanding-usd-to-etb'
 import { Route as IndexRouteImport } from './routes/index'
 
 const UsdToEtbRoute = UsdToEtbRouteImport.update({
@@ -58,11 +63,30 @@ const GoldPriceEthiopiaRoute = GoldPriceEthiopiaRouteImport.update({
   path: '/gold-price-ethiopia',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HowEthiopianCalendarWorksRoute = HowEthiopianCalendarWorksRouteImport.update(
+  {
+    id: '/how-ethiopian-calendar-works',
+    path: '/how-ethiopian-calendar-works',
+    getParentRoute: () => rootRouteImport,
+  } as any,
+)
 const EthiopianHolidaysRoute = EthiopianHolidaysRouteImport.update({
   id: '/ethiopian-holidays',
   path: '/ethiopian-holidays',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EthiopianHolidaysExplainedRoute =
+  EthiopianHolidaysExplainedRouteImport.update({
+    id: '/ethiopian-holidays-explained',
+    path: '/ethiopian-holidays-explained',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const EthiopianCalendarVsGregorianRoute =
+  EthiopianCalendarVsGregorianRouteImport.update({
+    id: '/ethiopian-calendar-vs-gregorian',
+    path: '/ethiopian-calendar-vs-gregorian',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const EthiopianDateTodayRoute = EthiopianDateTodayRouteImport.update({
   id: '/ethiopian-date-today',
   path: '/ethiopian-date-today',
@@ -77,6 +101,11 @@ const EthiopianCalendarConverterRoute =
 const EthiopianCalendarRoute = EthiopianCalendarRouteImport.update({
   id: '/ethiopian-calendar',
   path: '/ethiopian-calendar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Ethiopian13MonthsGuideRoute = Ethiopian13MonthsGuideRouteImport.update({
+  id: '/ethiopian-13-months-guide',
+  path: '/ethiopian-13-months-guide',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DateDifferenceRoute = DateDifferenceRouteImport.update({
@@ -114,6 +143,11 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const UnderstandingUsdToEtbRoute = UnderstandingUsdToEtbRouteImport.update({
+  id: '/understanding-usd-to-etb',
+  path: '/understanding-usd-to-etb',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -131,13 +165,18 @@ export interface FileRoutesByFullPath {
   '/date-difference': typeof DateDifferenceRoute
   '/ethiopian-calendar': typeof EthiopianCalendarRoute
   '/ethiopian-calendar-converter': typeof EthiopianCalendarConverterRoute
+  '/ethiopian-calendar-vs-gregorian': typeof EthiopianCalendarVsGregorianRoute
+  '/ethiopian-13-months-guide': typeof Ethiopian13MonthsGuideRoute
   '/ethiopian-date-today': typeof EthiopianDateTodayRoute
   '/ethiopian-holidays': typeof EthiopianHolidaysRoute
+  '/ethiopian-holidays-explained': typeof EthiopianHolidaysExplainedRoute
   '/gold-price-ethiopia': typeof GoldPriceEthiopiaRoute
+  '/how-ethiopian-calendar-works': typeof HowEthiopianCalendarWorksRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/time-in-ethiopia': typeof TimeInEthiopiaRoute
+  '/understanding-usd-to-etb': typeof UnderstandingUsdToEtbRoute
   '/usd-to-etb': typeof UsdToEtbRoute
 }
 export interface FileRoutesByTo {
@@ -151,13 +190,18 @@ export interface FileRoutesByTo {
   '/date-difference': typeof DateDifferenceRoute
   '/ethiopian-calendar': typeof EthiopianCalendarRoute
   '/ethiopian-calendar-converter': typeof EthiopianCalendarConverterRoute
+  '/ethiopian-calendar-vs-gregorian': typeof EthiopianCalendarVsGregorianRoute
+  '/ethiopian-13-months-guide': typeof Ethiopian13MonthsGuideRoute
   '/ethiopian-date-today': typeof EthiopianDateTodayRoute
   '/ethiopian-holidays': typeof EthiopianHolidaysRoute
+  '/ethiopian-holidays-explained': typeof EthiopianHolidaysExplainedRoute
   '/gold-price-ethiopia': typeof GoldPriceEthiopiaRoute
+  '/how-ethiopian-calendar-works': typeof HowEthiopianCalendarWorksRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/time-in-ethiopia': typeof TimeInEthiopiaRoute
+  '/understanding-usd-to-etb': typeof UnderstandingUsdToEtbRoute
   '/usd-to-etb': typeof UsdToEtbRoute
 }
 export interface FileRoutesById {
@@ -172,13 +216,18 @@ export interface FileRoutesById {
   '/date-difference': typeof DateDifferenceRoute
   '/ethiopian-calendar': typeof EthiopianCalendarRoute
   '/ethiopian-calendar-converter': typeof EthiopianCalendarConverterRoute
+  '/ethiopian-calendar-vs-gregorian': typeof EthiopianCalendarVsGregorianRoute
+  '/ethiopian-13-months-guide': typeof Ethiopian13MonthsGuideRoute
   '/ethiopian-date-today': typeof EthiopianDateTodayRoute
   '/ethiopian-holidays': typeof EthiopianHolidaysRoute
+  '/ethiopian-holidays-explained': typeof EthiopianHolidaysExplainedRoute
   '/gold-price-ethiopia': typeof GoldPriceEthiopiaRoute
+  '/how-ethiopian-calendar-works': typeof HowEthiopianCalendarWorksRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/time-in-ethiopia': typeof TimeInEthiopiaRoute
+  '/understanding-usd-to-etb': typeof UnderstandingUsdToEtbRoute
   '/usd-to-etb': typeof UsdToEtbRoute
 }
 export interface FileRouteTypes {
@@ -194,13 +243,18 @@ export interface FileRouteTypes {
     | '/date-difference'
     | '/ethiopian-calendar'
     | '/ethiopian-calendar-converter'
+    | '/ethiopian-calendar-vs-gregorian'
+    | '/ethiopian-13-months-guide'
     | '/ethiopian-date-today'
     | '/ethiopian-holidays'
+    | '/ethiopian-holidays-explained'
     | '/gold-price-ethiopia'
+    | '/how-ethiopian-calendar-works'
     | '/privacy'
     | '/sitemap.xml'
     | '/terms'
     | '/time-in-ethiopia'
+    | '/understanding-usd-to-etb'
     | '/usd-to-etb'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -214,13 +268,18 @@ export interface FileRouteTypes {
     | '/date-difference'
     | '/ethiopian-calendar'
     | '/ethiopian-calendar-converter'
+    | '/ethiopian-calendar-vs-gregorian'
+    | '/ethiopian-13-months-guide'
     | '/ethiopian-date-today'
     | '/ethiopian-holidays'
+    | '/ethiopian-holidays-explained'
     | '/gold-price-ethiopia'
+    | '/how-ethiopian-calendar-works'
     | '/privacy'
     | '/sitemap.xml'
     | '/terms'
     | '/time-in-ethiopia'
+    | '/understanding-usd-to-etb'
     | '/usd-to-etb'
   id:
     | '__root__'
@@ -234,13 +293,18 @@ export interface FileRouteTypes {
     | '/date-difference'
     | '/ethiopian-calendar'
     | '/ethiopian-calendar-converter'
+    | '/ethiopian-calendar-vs-gregorian'
+    | '/ethiopian-13-months-guide'
     | '/ethiopian-date-today'
     | '/ethiopian-holidays'
+    | '/ethiopian-holidays-explained'
     | '/gold-price-ethiopia'
+    | '/how-ethiopian-calendar-works'
     | '/privacy'
     | '/sitemap.xml'
     | '/terms'
     | '/time-in-ethiopia'
+    | '/understanding-usd-to-etb'
     | '/usd-to-etb'
   fileRoutesById: FileRoutesById
 }
@@ -255,13 +319,18 @@ export interface RootRouteChildren {
   DateDifferenceRoute: typeof DateDifferenceRoute
   EthiopianCalendarRoute: typeof EthiopianCalendarRoute
   EthiopianCalendarConverterRoute: typeof EthiopianCalendarConverterRoute
+  EthiopianCalendarVsGregorianRoute: typeof EthiopianCalendarVsGregorianRoute
+  Ethiopian13MonthsGuideRoute: typeof Ethiopian13MonthsGuideRoute
   EthiopianDateTodayRoute: typeof EthiopianDateTodayRoute
   EthiopianHolidaysRoute: typeof EthiopianHolidaysRoute
+  EthiopianHolidaysExplainedRoute: typeof EthiopianHolidaysExplainedRoute
   GoldPriceEthiopiaRoute: typeof GoldPriceEthiopiaRoute
+  HowEthiopianCalendarWorksRoute: typeof HowEthiopianCalendarWorksRoute
   PrivacyRoute: typeof PrivacyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsRoute: typeof TermsRoute
   TimeInEthiopiaRoute: typeof TimeInEthiopiaRoute
+  UnderstandingUsdToEtbRoute: typeof UnderstandingUsdToEtbRoute
   UsdToEtbRoute: typeof UsdToEtbRoute
 }
 
@@ -330,6 +399,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EthiopianCalendarConverterRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ethiopian-calendar-vs-gregorian': {
+      id: '/ethiopian-calendar-vs-gregorian'
+      path: '/ethiopian-calendar-vs-gregorian'
+      fullPath: '/ethiopian-calendar-vs-gregorian'
+      preLoaderRoute: typeof EthiopianCalendarVsGregorianRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ethiopian-13-months-guide': {
+      id: '/ethiopian-13-months-guide'
+      path: '/ethiopian-13-months-guide'
+      fullPath: '/ethiopian-13-months-guide'
+      preLoaderRoute: typeof Ethiopian13MonthsGuideRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/ethiopian-calendar': {
       id: '/ethiopian-calendar'
       path: '/ethiopian-calendar'
@@ -386,6 +469,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/understanding-usd-to-etb': {
+      id: '/understanding-usd-to-etb'
+      path: '/understanding-usd-to-etb'
+      fullPath: '/understanding-usd-to-etb'
+      preLoaderRoute: typeof UnderstandingUsdToEtbRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/how-ethiopian-calendar-works': {
+      id: '/how-ethiopian-calendar-works'
+      path: '/how-ethiopian-calendar-works'
+      fullPath: '/how-ethiopian-calendar-works'
+      preLoaderRoute: typeof HowEthiopianCalendarWorksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ethiopian-holidays-explained': {
+      id: '/ethiopian-holidays-explained'
+      path: '/ethiopian-holidays-explained'
+      fullPath: '/ethiopian-holidays-explained'
+      preLoaderRoute: typeof EthiopianHolidaysExplainedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -407,13 +511,18 @@ const rootRouteChildren: RootRouteChildren = {
   DateDifferenceRoute: DateDifferenceRoute,
   EthiopianCalendarRoute: EthiopianCalendarRoute,
   EthiopianCalendarConverterRoute: EthiopianCalendarConverterRoute,
+  EthiopianCalendarVsGregorianRoute: EthiopianCalendarVsGregorianRoute,
+  Ethiopian13MonthsGuideRoute: Ethiopian13MonthsGuideRoute,
   EthiopianDateTodayRoute: EthiopianDateTodayRoute,
   EthiopianHolidaysRoute: EthiopianHolidaysRoute,
+  EthiopianHolidaysExplainedRoute: EthiopianHolidaysExplainedRoute,
   GoldPriceEthiopiaRoute: GoldPriceEthiopiaRoute,
+  HowEthiopianCalendarWorksRoute: HowEthiopianCalendarWorksRoute,
   PrivacyRoute: PrivacyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsRoute: TermsRoute,
   TimeInEthiopiaRoute: TimeInEthiopiaRoute,
+  UnderstandingUsdToEtbRoute: UnderstandingUsdToEtbRoute,
   UsdToEtbRoute: UsdToEtbRoute,
 }
 export const routeTree = rootRouteImport
