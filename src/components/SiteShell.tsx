@@ -4,6 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 const NAV = [
+  { to: "/", label: "Home" },
   { to: "/ethiopian-calendar", label: "Calendar" },
   { to: "/ethiopian-calendar-converter", label: "Converter" },
   { to: "/currency-converter", label: "Currency" },
