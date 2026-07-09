@@ -58,7 +58,7 @@ function ContactPage() {
     }
     setErrors({});
     setSubmitting(true);
-    // Local-only submission for now (no backend wired).
+    // Demo-only submission for now (no backend delivery wired).
     await new Promise((r) => setTimeout(r, 400));
     setSubmitting(false);
     setSent(true);
@@ -80,7 +80,8 @@ function ContactPage() {
               </span>
               <h2 className="text-lg font-semibold tracking-tight">Message sent</h2>
               <p className="text-sm text-muted-foreground">
-                Thanks — we'll reply to your email soon.
+                Thanks. Your message has been validated locally. For real replies right now,
+                please email hello@ethiopiatoday.online.
               </p>
               <button
                 type="button"

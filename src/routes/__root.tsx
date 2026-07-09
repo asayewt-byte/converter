@@ -12,6 +12,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { CookieConsent } from "@/components/CookieConsent";
+import { useConsent } from "@/hooks/use-consent";
 
 function NotFoundComponent() {
   return (
@@ -103,11 +104,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     scripts: [
       {
-        async: true,
-        src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4947055003744994",
-        crossOrigin: "anonymous",
-      },
-      {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
@@ -148,9 +144,30 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <AdSenseLoader />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
       <CookieConsent />
     </QueryClientProvider>
   );
+}
+
+function AdSenseLoader() {
+  const consent = useConsent();
+
+  useEffect(() => {
+    if (consent !== "accepted") return;
+    if (typeof document === "undefined") return;
+    if (document.querySelector('script[data-adsense-loader="true"]')) return;
+
+    const script = document.createElement("script");
+    script.async = true;
+    script.crossOrigin = "anonymous";
+    script.src =
+      "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4947055003744994";
+    script.setAttribute("data-adsense-loader", "true");
+    document.head.appendChild(script);
+  }, [consent]);
+
+  return null;
 }

@@ -115,6 +115,24 @@ function GoldPage() {
           </tbody>
         </table>
       </Card>
+
+      <div className="mt-6 grid gap-6 md:grid-cols-2">
+        <Card>
+          <h2 className="font-serif text-2xl tracking-tight">How to use this price table</h2>
+          <p className="mt-3 text-sm text-muted-foreground leading-7">
+            This calculator combines international spot gold and USD to ETB to estimate a reference local value.
+            It is best used for market orientation before buying, selling, or comparing quotes.
+          </p>
+        </Card>
+        <Card>
+          <h2 className="font-serif text-2xl tracking-tight">Why shop prices differ</h2>
+          <ul className="mt-3 list-disc pl-5 text-sm text-muted-foreground leading-7 space-y-1">
+            <li>Jewelry includes labor and design charges beyond bullion value.</li>
+            <li>Purity verification and wastage assumptions vary by seller.</li>
+            <li>Intraday USD to ETB and spot moves can shift quotes quickly.</li>
+          </ul>
+        </Card>
+      </div>
     </SiteShell>
   );
 }

@@ -92,6 +92,24 @@ function UsdEtb() {
         </Link>
         .
       </div>
+
+      <div className="mt-8 grid gap-6 md:grid-cols-2">
+        <Card>
+          <h2 className="font-serif text-2xl tracking-tight">How to read USD to ETB today</h2>
+          <p className="mt-3 text-sm text-muted-foreground leading-7">
+            This page shows a mid-market reference rate. It is useful for planning, but transfer services and banks
+            often add spread and service fees. Compare the final ETB received, not only the headline rate.
+          </p>
+        </Card>
+        <Card>
+          <h2 className="font-serif text-2xl tracking-tight">Before you send money to Ethiopia</h2>
+          <ul className="mt-3 list-disc pl-5 text-sm text-muted-foreground leading-7 space-y-1">
+            <li>Check transfer fee and exchange markup separately.</li>
+            <li>Confirm payout channel: bank deposit, cash pickup, or mobile wallet.</li>
+            <li>Re-check USD to ETB at the time of transfer, not earlier in the day.</li>
+          </ul>
+        </Card>
+      </div>
     </SiteShell>
   );
 }

@@ -5,7 +5,7 @@ import type {} from "@tanstack/react-start";
 // Once your AdSense account is approved, replace PUBLISHER_ID with your
 // own pub-XXXXXXXXXXXXXXXX id (do NOT include the "pub-" prefix twice —
 // just the digits after "pub-").
-const PUBLISHER_ID = ""; // e.g. "0000000000000000"
+const PUBLISHER_ID = "4947055003744994"; // e.g. "0000000000000000"
 
 export const Route = createFileRoute("/ads.txt")({
   server: {
