@@ -11,13 +11,13 @@ import { useEffect, useState } from "react";
 export const Route = createFileRoute("/ethiopian-date-today")({
   head: () => ({
     meta: [
-      { title: "Ethiopian Date Today — What Is Today in the Ge'ez Calendar?" },
+      { title: "Ethiopia Date Today — What's Today's Ethiopian Calendar Date?" },
       {
         name: "description",
-        content: "Today's date in the Ethiopian (Ge'ez) calendar, with the Amharic month name and matching Gregorian date.",
+        content: "What is today's date in Ethiopia? Get today's Ethiopian calendar date, Gregorian date, and the day of the week — updated live.",
       },
-      { property: "og:title", content: "Ethiopian Date Today" },
-      { property: "og:description", content: "Today's date in the Ethiopian (Ge'ez) calendar." },
+      { property: "og:title", content: "Ethiopia Date Today" },
+      { property: "og:description", content: "Check today's Ethiopian date instantly. See the Ge'ez calendar and Gregorian equivalent." },
       { property: "og:url", content: "https://ethiopiatoday.online/ethiopian-date-today" },
       { property: "og:locale", content: "en_US" },
       { property: "og:locale:alternate", content: "am_ET" },
@@ -36,7 +36,7 @@ function DateToday() {
   const dow = ETHIOPIAN_DAYS[now.greg.getUTCDay()];
 
   return (
-    <SiteShell icon={CalendarCheck} title="Ethiopian Date Today" intro="What is today's date in the Ethiopian calendar?">
+    <SiteShell icon={CalendarCheck} title="Ethiopia Date Today" intro="What is today's date in the Ethiopian calendar?">
       <Card>
         <div className="text-xs uppercase tracking-widest text-muted-foreground">Today</div>
         <div className="mt-2 text-4xl md:text-5xl font-semibold tracking-tight">
