@@ -63,6 +63,27 @@
   --shadow-lg: 0 20px 40px -15px rgba(15, 15, 20, 0.15);
 }
 
+/* Font-display declarations: system fonts render immediately while web fonts load */
+@supports (font-display: swap) {
+  @font-face {
+    font-family: "Fraunces Variable Override";
+    src: local("Fraunces Variable"), local("Fraunces");
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Inter Tight Variable Override";
+    src: local("Inter Tight Variable"), local("Inter Tight");
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "JetBrains Mono Variable Override";
+    src: local("JetBrains Mono Variable"), local("JetBrains Mono");
+    font-display: optional;
+  }
+}
+
 :root {
   --radius: 12px;
   --font-sans: "Inter Tight Variable", "Inter Tight", ui-sans-serif, system-ui, sans-serif;
@@ -336,4 +357,3 @@ div[class*="lovable"][class*="badge"] {
   height: 0 !important;
   overflow: hidden !important;
 }
-
