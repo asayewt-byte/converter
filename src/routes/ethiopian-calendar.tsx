@@ -13,14 +13,13 @@ import { useMemo, useState } from "react";
 export const Route = createFileRoute("/ethiopian-calendar")({
   head: () => ({
     meta: [
-      { title: "Ethiopian Calendar — Today's Ge'ez Date & Full Month View" },
+      { title: "Ethiopian Calendar 2026 — Today's Date, Month View & Converter" },
       {
         name: "description",
-        content:
-          "See today's Ethiopian date and browse any month of the Ethiopian (Ge'ez) calendar with the matching Gregorian dates.",
+        content: "Check today's Ethiopian calendar date and browse any month. See the Ge'ez calendar with matching Gregorian dates. Convert between Ethiopian and Gregorian dates instantly.",
       },
-      { property: "og:title", content: "Ethiopian Calendar" },
-      { property: "og:description", content: "Today's Ethiopian date and full-month view." },
+      { property: "og:title", content: "Ethiopian Calendar — Today's Ge'ez Date" },
+      { property: "og:description", content: "View today's Ethiopian date and full month view of the Ge'ez calendar." },
       { property: "og:url", content: "https://ethiopiatoday.online/ethiopian-calendar" },
       { property: "og:locale", content: "en_US" },
       { property: "og:locale:alternate", content: "am_ET" },
