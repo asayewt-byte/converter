@@ -87,15 +87,13 @@ export function SiteShell({
               {title}
             </h1>
             {intro && (
-            <p className="mt-6 max-w-2xl text-[15px] sm:text-base md:text-[17px] leading-[1.6] text-muted-foreground text-pretty">
-              {intro}
-            </p>
-
+              <p className="mt-6 max-w-2xl text-[15px] sm:text-base md:text-[17px] leading-[1.6] text-muted-foreground text-pretty">
+                {intro}
+              </p>
             )}
           </div>
         </section>
         <section className="mx-auto w-full max-w-5xl px-6 pb-24 anim-fade-up">{children}</section>
-
       </main>
       <Footer />
     </div>
@@ -176,12 +174,10 @@ export function Header() {
               >
                 {n.label}
               </Link>
-
             ))}
           </nav>
           <ThemeToggle />
         </div>
-
       </div>
     </header>
   );
@@ -192,10 +188,7 @@ export function Footer() {
     <footer className="relative border-t border-border/60 mt-auto bg-secondary/30 backdrop-blur-sm z-10">
       <div className="mx-auto w-full max-w-6xl px-6 py-12 text-sm text-muted-foreground flex flex-col md:flex-row md:items-center md:justify-between gap-6">
         <div className="flex items-center gap-2.5">
-          <span
-            aria-hidden
-            className="inline-flex h-1.5 w-1.5 rounded-full bg-accent"
-          />
+          <span aria-hidden className="inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
           <span>© {new Date().getFullYear()} Ethiopia Today · Daily utilities for Ethiopia.</span>
         </div>
         <div className="flex flex-wrap gap-x-5 gap-y-2">
@@ -214,6 +207,9 @@ export function Footer() {
           <Link to="/cookies" className="hover:text-foreground transition-colors">
             Cookies
           </Link>
+          <Link to="/site-map" className="hover:text-foreground transition-colors">
+            Site Map
+          </Link>
           <Link to="/usd-to-etb" className="hover:text-foreground transition-colors">
             USD to ETB
           </Link>
@@ -225,7 +221,6 @@ export function Footer() {
     </footer>
   );
 }
-
 
 export function Card({ children, className = "" }: { children: ReactNode; className?: string }) {
   return (
