@@ -1,11 +1,10 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteShell, Card } from "@/components/SiteShell";
 import { Calendar } from "lucide-react";
 import {
   ETHIOPIAN_DAYS,
   ETHIOPIAN_MONTHS,
   ethiopianToGregorian,
-  gregorianToEthiopian,
   todayInEthiopia,
 } from "@/lib/ethiopian-calendar";
 import { useMemo, useState } from "react";
@@ -16,15 +15,54 @@ export const Route = createFileRoute("/ethiopian-calendar")({
       { title: "Ethiopian Calendar 2026 — Today's Date, Month View & Converter" },
       {
         name: "description",
-        content: "Check today's Ethiopian calendar date and browse any month. See the Ge'ez calendar with matching Gregorian dates. Convert between Ethiopian and Gregorian dates instantly.",
+        content:
+          "Check today's Ethiopian calendar date and browse any month. See the Ge'ez calendar with matching Gregorian dates. Convert between Ethiopian and Gregorian dates instantly.",
       },
       { property: "og:title", content: "Ethiopian Calendar — Today's Ge'ez Date" },
-      { property: "og:description", content: "View today's Ethiopian date and full month view of the Ge'ez calendar." },
+      {
+        property: "og:description",
+        content: "View today's Ethiopian date and full month view of the Ge'ez calendar.",
+      },
       { property: "og:url", content: "https://ethiopiatoday.online/ethiopian-calendar" },
       { property: "og:locale", content: "en_US" },
       { property: "og:locale:alternate", content: "am_ET" },
     ],
     links: [{ rel: "canonical", href: "https://ethiopiatoday.online/ethiopian-calendar" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            {
+              "@type": "Question",
+              name: "How many months are in the Ethiopian calendar?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "The Ethiopian calendar has 13 months: 12 months of 30 days and a 13th month, Pagume, with 5 days or 6 in leap years.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Why is the Ethiopian year different from Gregorian year?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "It follows a different historical year-count system, so Ethiopian years are usually around 7 to 8 years behind Gregorian years.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Can I convert Ethiopian dates to Gregorian on this site?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes. Use the Ethiopian Calendar Converter page to convert dates between Ethiopian and Gregorian formats.",
+              },
+            },
+          ],
+        }),
+      },
+    ],
   }),
   component: CalendarPage,
 });
@@ -49,7 +87,8 @@ function CalendarPage() {
   const firstDow = days[0]?.dow ?? 0;
 
   return (
-    <SiteShell icon={Calendar}
+    <SiteShell
+      icon={Calendar}
       title="Ethiopian Calendar"
       intro="Browse any Ethiopian month with the matching Gregorian dates. Today is highlighted."
     >
@@ -135,9 +174,7 @@ function CalendarPage() {
                         : "border-transparent hover:border-border/60 hover:bg-secondary/50"
                   }`}
                 >
-                  <div className="text-[15px] font-semibold leading-none tabular-nums">
-                    {cell.d}
-                  </div>
+                  <div className="text-[15px] font-semibold leading-none tabular-nums">{cell.d}</div>
                   <div
                     className={`mt-1 text-[9px] leading-none tabular-nums ${
                       isToday ? "opacity-80" : "text-muted-foreground"
@@ -148,6 +185,79 @@ function CalendarPage() {
                 </div>
               );
             })}
+          </div>
+        </div>
+      </Card>
+
+      <div className="mt-6 grid gap-6 md:grid-cols-2">
+        <Card>
+          <h2 className="font-serif text-2xl tracking-tight">Understanding the 13-month system</h2>
+          <p className="mt-3 text-sm leading-7 text-muted-foreground">
+            The Ethiopian calendar is designed for consistency: 12 months each contain 30 days,
+            then a short month called Pagume completes the year. This structure makes monthly
+            planning predictable for schools, offices, and local administration.
+          </p>
+          <p className="mt-3 text-sm leading-7 text-muted-foreground">
+            Pagume has 5 days in regular years and 6 days in leap years. That leap adjustment keeps
+            the calendar aligned over time.
+          </p>
+        </Card>
+
+        <Card>
+          <h2 className="font-serif text-2xl tracking-tight">How to use this calendar in daily life</h2>
+          <p className="mt-3 text-sm leading-7 text-muted-foreground">
+            Use this month view to align Ethiopian and Gregorian dates side by side. It helps with
+            planning travel, exam schedules, religious observances, and business deadlines when
+            documents use different date systems.
+          </p>
+          <p className="mt-3 text-sm leading-7 text-muted-foreground">
+            Today is highlighted automatically so you can quickly orient yourself before selecting
+            another month or year.
+          </p>
+        </Card>
+      </div>
+
+      <Card className="mt-6">
+        <h2 className="font-serif text-2xl tracking-tight">Related tools</h2>
+        <p className="mt-3 text-sm leading-7 text-muted-foreground">
+          If you need exact date conversion for forms or records, open the
+          <Link
+            to="/ethiopian-calendar-converter"
+            className="mx-1 text-primary underline underline-offset-4"
+          >
+            Ethiopian calendar converter
+          </Link>
+          . For a quick daily answer, visit
+          <Link to="/ethiopian-date-today" className="ml-1 text-primary underline underline-offset-4">
+            Ethiopia date today
+          </Link>
+          .
+        </p>
+      </Card>
+
+      <Card className="mt-6">
+        <h2 className="font-serif text-2xl tracking-tight">FAQ</h2>
+        <div className="mt-4 space-y-4 text-sm leading-7 text-muted-foreground">
+          <div>
+            <h3 className="font-medium text-foreground">How many days are in each Ethiopian month?</h3>
+            <p>
+              Months 1 through 12 each have 30 days. The 13th month (Pagume) has 5 days, or 6 in
+              leap years.
+            </p>
+          </div>
+          <div>
+            <h3 className="font-medium text-foreground">Why do Ethiopian and Gregorian years differ?</h3>
+            <p>
+              The two calendars use different historical year calculations, so their year numbers do
+              not match.
+            </p>
+          </div>
+          <div>
+            <h3 className="font-medium text-foreground">Can I check future and past Ethiopian dates here?</h3>
+            <p>
+              Yes. Change the month and year fields to browse past or future Ethiopian calendar
+              months and their Gregorian equivalents.
+            </p>
           </div>
         </div>
       </Card>
