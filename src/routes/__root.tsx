@@ -6,6 +6,7 @@ import {
   useRouter,
   HeadContent,
   Scripts,
+  useLocation,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
@@ -14,6 +15,25 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { CookieConsent } from "@/components/CookieConsent";
 import { useConsent } from "@/hooks/use-consent";
 import { Analytics } from "@vercel/analytics/react";
+
+const ADSENSE_ENABLED = import.meta.env.VITE_ENABLE_ADSENSE === "true";
+const ADSENSE_SCRIPT_SELECTOR = 'script[data-adsense-loader="true"]';
+const ADSENSE_ALLOWED_PATHS = new Set([
+  "/",
+  "/about",
+  "/ethiopian-date-today",
+  "/ethiopian-calendar",
+  "/ethiopian-calendar-vs-gregorian",
+  "/how-ethiopian-calendar-works",
+  "/ethiopian-13-months-guide",
+  "/ethiopian-holidays",
+  "/ethiopian-holidays-explained",
+  "/usd-to-etb",
+  "/understanding-usd-to-etb",
+  "/currency-converter",
+  "/gold-price-ethiopia",
+  "/time-in-ethiopia",
+]);
 
 function NotFoundComponent() {
   return (
@@ -82,7 +102,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Ethiopia Today — Calendar, Rates & Daily Utilities" },
       { name: "description", content: "Today's Ethiopian date, USD-ETB exchange rates, gold prices, time in Ethiopia, holidays, and useful calculators — updated daily." },
-      { name: "google-adsense-account", content: "ca-pub-4947055003744994" },
       { name: "author", content: "Ethiopia Today" },
       { name: "robots", content: "index,follow" },
       { property: "og:site_name", content: "Ethiopia Today" },
@@ -156,11 +175,23 @@ function RootComponent() {
 
 function AdSenseLoader() {
   const consent = useConsent();
+  const { pathname } = useLocation();
 
   useEffect(() => {
-    if (consent !== "accepted") return;
     if (typeof document === "undefined") return;
-    if (document.querySelector('script[data-adsense-loader="true"]')) return;
+
+    const existingScript = document.querySelector(ADSENSE_SCRIPT_SELECTOR);
+    const routeAllowsAds = ADSENSE_ALLOWED_PATHS.has(pathname);
+    const canServeAds = ADSENSE_ENABLED && consent === "accepted" && routeAllowsAds;
+
+    if (!canServeAds) {
+      if (existingScript) {
+        existingScript.remove();
+      }
+      return;
+    }
+
+    if (existingScript) return;
 
     const script = document.createElement("script");
     script.async = true;
@@ -169,7 +200,7 @@ function AdSenseLoader() {
       "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4947055003744994";
     script.setAttribute("data-adsense-loader", "true");
     document.head.appendChild(script);
-  }, [consent]);
+  }, [consent, pathname]);
 
   return null;
 }
