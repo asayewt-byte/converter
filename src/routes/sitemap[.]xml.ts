@@ -29,6 +29,7 @@ const ENTRIES: SitemapEntry[] = [
   { path: "/ethiopian-holidays-explained", changefreq: "monthly", priority: "0.7" },
   { path: "/ethiopian-calendar-vs-gregorian", changefreq: "monthly", priority: "0.7" },
   { path: "/ethiopian-13-months-guide", changefreq: "monthly", priority: "0.7" },
+  { path: "/site-map", changefreq: "weekly", priority: "0.6" },
   { path: "/about", changefreq: "yearly", priority: "0.4" },
   { path: "/contact", changefreq: "yearly", priority: "0.4" },
   { path: "/privacy", changefreq: "yearly", priority: "0.3" },
